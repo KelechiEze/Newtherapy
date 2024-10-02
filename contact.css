@@ -1,0 +1,223 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Top Bar */
+.top-bar {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 9px 0;
+}
+
+/* Navbar Styling */
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f8f8;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #007bff;
+}
+
+.appointment-btn {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.appointment-btn:hover {
+    background: #0056b3;
+}
+
+/* Contact Section Styling with Background Image */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    background: url('Images/counselling-session-1684309003-hero.jpg') no-repeat center center/cover; /* Add your image path */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay with reduced opacity */
+    transition: all 0.5s ease-in-out; /* Smooth transition for the overlay */
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2; /* Make sure form is above the overlay */
+}
+
+.contact-text {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 50px;
+    color: #fff;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for text on hover */
+}
+
+.contact-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* On hover effect for contact section - add a slight zoom */
+.contact-section:hover::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.contact-section:hover .contact-text {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for visibility */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for focus */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition */
+}
+
+.contact-form:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-btn {
+    background: #5c4ac7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: #4a3aa8;
+    transform: translateY(-2px);
+}
+
+/* Footer Styling */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .top-bar {
+        font-size: 0.9rem; /* Reduce text size */
+        padding: 10px; /* Add padding to keep it compact */
+    }
+
+    /* Navbar */
+    .container-navbar {
+        flex-direction: column; /* Stack the logo, navbar, and button */
+        align-items: center;
+        height: auto; /* Adjust height automatically based on content */
+        padding: 2px 0; /* Reduce padding to make it more compact */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add space between logo and navbar */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px; /* Add spacing between links */
+        margin-right: 30px;
+    }
+
+    .appointment-container {
+        margin-top: 10px; /* Add space below navbar links */
+    }
+    .contact-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .contact-text {
+        margin-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .contact-form {
+        margin: 0 auto;
+    }
+
+    .appointment-container {
+        margin-top: 10px;
+    }
+}

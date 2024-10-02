@@ -1,0 +1,436 @@
+/* Reset default browser styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    opacity: 0; /* Start hidden for fade-in effect */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Move elements slightly down */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move back to original position */
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start at original position */
+    }
+    50% {
+        transform: translateY(-20px); /* Bounce effect */
+    }
+}
+
+/* Define the spinning animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Change to -360deg for counterclockwise */
+    }
+}
+
+/* Create a keyframe for pause */
+@keyframes spinPause {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Keeps the final position */
+    }
+}
+
+.fade-in {
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 0.6s forwards; /* Fade-in effect */
+}
+
+/* Delay for each element */
+.fade-in:nth-child(1) {
+    animation-delay: 0.3s; /* Delay for the first element */
+}
+.fade-in:nth-child(2) {
+    animation-delay: 0.6s; /* Delay for the second element */
+}
+.fade-in:nth-child(3) {
+    animation-delay: 0.9s; /* Delay for the third element */
+}
+.fade-in:nth-child(4) {
+    animation-delay: 1.2s; /* Delay for the fourth element */
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #10161A;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+/* Navbar */
+header {
+    background-color: #10161A; /* Dark top bar */
+    padding: 15px 0;
+}
+
+/* Lighter container below the top bar */
+.container {
+    background-color: #1a2a34; /* Lighter shade of the top bar color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;  /* Ensures navbar spans full width */
+    align-items: center;
+}
+
+.logo {
+    flex: 1;  /* Keeps the logo on the left */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex: 2;  /* Allows nav-links to take up the middle space */
+    justify-content: center;  /* Center the nav links */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+}
+
+.nav-links li a:hover {
+    color: #00A8C6;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Container for the button */
+.appointment-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.appointment-btn {
+    background-color: #00A8C6;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+}
+
+.appointment-btn:hover {
+    background-color: #007f96;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column; /* Stack items on mobile */
+    justify-content: center;
+    align-items: center; /* Center content */
+    background-image: url('Images/image4.jpeg'); /* Add your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    padding: 80px 20px; /* Reduced padding for full width */
+    position: relative;
+    width: 100%; /* Ensure full width */
+    color: white; /* Ensure text is readable on the background */
+}
+
+.ourheroes {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    max-width: 1200px; /* Limit the maximum width for larger screens */
+    margin: 0 auto; /* Center the container on the page */
+    padding: 40px; /* Add some padding around the container */
+    gap: 20px; /* Space between the hero content and image */
+    position: relative; /* Required for absolute positioning of overlay */
+}
+
+.hero-content {
+    max-width: 500px; /* Set a max width for the content */
+    padding: 20px; /* Padding inside the hero content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    z-index: 2; /* Ensure it is above the overlay */
+}
+
+
+.hero-heading {
+    background-color: #00A8C6; /* Matching background for text */
+    padding: 10px 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-heading h2 {
+    font-size: 36px;
+    color: #fff; /* Text color to white */
+    font-weight: bold;
+}
+
+.hero-heading h2,
+.hero p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a shadow to improve readability */
+}
+
+.hero p {
+    font-size: 18px;
+    color: #3D4442;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.hero-btn {
+    background-color: #10161A;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+}
+
+.hero-btn:hover {
+    background-color: #333;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Transition effect on hover */
+}
+
+.hero-image img:hover {
+    transform: scale(1.05); /* Image zoom effect */
+    opacity: 0.8; /* Change to desired opacity on hover */
+}
+
+/* Optional: Overlay effect */
+.hero-image .image-overlay {
+    position: absolute; /* Position absolute to overlay the image */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+    border-radius: 10px; /* Match the border radius of the image */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for overlay */
+}
+
+.hero-image:hover .image-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/* Customer Satisfaction Carousel */
+.customer-satisfaction {
+    padding: 60px 60px;
+    background-color: #e4e7eb;
+    text-align: center;
+    position: relative; /* Ensure stars are positioned relative to this section */
+    overflow: hidden; /* Hide any overflowing stars */
+}
+
+.customer-satisfaction h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.stars-container {
+    position: absolute; /* Positioning stars absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    pointer-events: none; /* Make sure stars don't interfere with mouse events */
+}
+
+.star {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: transparent; /* Make background transparent */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    animation: bounce 2s infinite; /* Animation for bouncing */
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s ease; /* Transition for opacity */
+}
+
+.star.hidden {
+    opacity: 0; /* Fully transparent */
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img {
+    width: 30%;
+    border-radius: 8px;
+}
+
+.carousel-item p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Services Offered Section */
+/* Services Section */
+.services {
+    padding: 60px 60px;
+    background-color: #5B6361; /* Light background for contrast */
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #10161A; /* Dark color for headers */
+}
+
+/* Service Item */
+.service-item {
+    background-color: #e6f7ff; /* White background for boxes */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px; /* Inner padding */
+    margin: 20px; /* Space between boxes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    display: inline-block; /* Align items in a row */
+    width: calc(33% - 40px); /* Three items per row with spacing */
+    animation: spin 1s ease forwards, spinPause 5s ease forwards; /* Pause for 5 seconds */
+    animation-delay: 0s, 1s; /* Start the pause after the first spin */
+}
+
+/* Hover effect for service items */
+.service-item:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Service Title */
+.service-item h3 {
+    font-size: 24px;
+    color: #00A8C6; /* Accent color for titles */
+    margin-bottom: 15px; /* Space below title */
+}
+
+/* Service Description */
+.service-item p {
+    font-size: 16px;
+    color: #333; /* Dark gray for readability */
+    line-height: 1.5; /* Line height for better readability */
+}
+/* Contact Us Section */
+.contact-us {
+    padding: 60px 60px;
+    background-color: #f0f2f5;
+    text-align: center;
+}
+
+.contact-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-us p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contact-btn {
+    background-color: #00A8C6;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #007f96;
+}
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .services {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .service-item {
+        width: calc(100% - 40px); /* Full width on small screens */
+        margin: 10px; /* Reduce margin on smaller screens */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #10161A;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
