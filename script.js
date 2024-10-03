@@ -70,3 +70,26 @@ setInterval(() => {
         item.style.animation = ''; // Add the animation back
     });
 }, 13000); // Adjust the interval to match the spin and pause time (1s spin + 5s pause)
+
+// Get elements
+const openModalBtn = document.getElementById('openModalBtn');
+const modal = document.getElementById('appointmentModal');
+const closeModalBtn = document.querySelector('.close-btn');
+
+// Function to open modal
+openModalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+});
+
+// Function to close modal
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});

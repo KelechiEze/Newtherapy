@@ -48,6 +48,36 @@
         </div>
     </div>
 
+     <!-- Appointment Modal -->
+     <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Your full name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Your email" required>
+
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" required>
+
+                <label for="service">Service:</label>
+                <select id="service" required>
+                    <option value="physical-therapy">Physical Therapy</option>
+                    <option value="massage-therapy">Massage Therapy</option>
+                    <option value="occupational-therapy">Occupational Therapy</option>
+                </select>
+
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" placeholder="Any special requests or concerns?"></textarea>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Customer Satisfaction Carousel -->
 <section class="customer-satisfaction">
     <h2>Customer Satisfaction</h2>
@@ -92,6 +122,7 @@
     <a href="contact.html" class="contact-btn">Contact Us</a>
 </section>
 
+ 
 
     <!-- Footer -->
     <footer>
