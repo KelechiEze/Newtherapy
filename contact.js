@@ -29,3 +29,22 @@ document.getElementById('contactForm').addEventListener('submit', async function
         alert('An error occurred while sending your message. Please try again later.');
     }
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Show the spinner
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = 'block';
+
+    // Simulate form submission delay
+    setTimeout(function() {
+        // Hide spinner after 3 seconds (simulating server response)
+        spinner.style.display = 'none';
+        alert("Form submitted successfully!");
+
+        // You can proceed with form submission here or reset the form
+        document.getElementById('contactForm').reset();
+    }, 3000);
+});
+

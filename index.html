@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Therapy Website</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Arial:wght@400&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -16,7 +18,7 @@
     <!-- Navbar -->
     <header>
         <div class="container">
-            <div class="logo fade-in"><h1>Shabach</h1></div>
+            <div class="logo fade-in"><h1>ShabacH</h1></div>
             <nav class="navbar">
                 <ul class="nav-links fade-in">
                     <li><a href="index.html">Home</a></li>
@@ -53,27 +55,43 @@
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <h2>Book an Appointment</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" placeholder="Your full name" required>
+            <form id="appointmentForm">
+            <div class="form-group">
+                <label for="firstName">Name:</label>
+                <input type="text" id="firstName" placeholder="Your full name" required>
+            </div>
 
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" placeholder="Your last name" required>
+            </div>
+
+            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="Your email" required>
+            </div>
 
+            <div class="form-group">
                 <label for="date">Preferred Date:</label>
-                <input type="date" id="date" required>
+                <input type="date" id="preferredDate" required>
+            </div>
 
-                <label for="service">Service:</label>
-                <select id="service" required>
+                <div class="form-group">
+                    <label for="service">Service:</label>
+                 <select id="service" required>
                     <option value="physical-therapy">Physical Therapy</option>
                     <option value="massage-therapy">Massage Therapy</option>
                     <option value="occupational-therapy">Occupational Therapy</option>
                 </select>
+                </div>
 
+            <div class="form-group">
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" placeholder="Any special requests or concerns?"></textarea>
+            </div>
 
                 <button type="submit" class="submit-btn">Submit</button>
+                <div class="spinner" id="loadingSpinner" style="display: none;"></div>
             </form>
         </div>
     </div>
@@ -112,6 +130,40 @@
     <div class="service-item">
         <h3>Occupational Therapy</h3>
         <p>We assist individuals in developing, recovering, and improving daily living skills.</p>
+    </div>
+</section>
+
+<!-- New Resources Section -->
+<section class="resources">
+    <h2>An array of resources</h2>
+    <p>Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.</p>
+    
+    <div class="resource-item">
+        <div class="resource-content">
+            <h3>Etudes Architect App</h3>
+            <ul>
+                <li>Collaborate with fellow architects.</li>
+                <li>Showcase your projects.</li>
+                <li>Explore the world of architecture.</li>
+            </ul>
+        </div>
+        <div class="resource-image">
+            <img src="Images/girls-cafe_1157-4286.jpg" alt="Etudes Architect App">
+        </div>
+    </div>
+
+    <div class="resource-item">
+        <div class="resource-image">
+            <img src="Images/Wall_building.jpg" alt="Etudes Newsletter">
+        </div>
+        <div class="resource-content">
+            <h3>Etudes Newsletter</h3>
+            <ul>
+                <li>A world of thought-provoking articles.</li>
+                <li>Case studies that celebrate architecture.</li>
+                <li>Exclusive access to design insights.</li>
+            </ul>
+        </div>
     </div>
 </section>
 

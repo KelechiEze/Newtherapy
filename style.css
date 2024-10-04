@@ -64,6 +64,34 @@ body {
     }
 }
 
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Starts slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Ends at original position */
+    }
+}
+
 .fade-in {
     opacity: 0; /* Start hidden */
     animation: fadeIn 0.6s forwards; /* Fade-in effect */
@@ -219,6 +247,30 @@ header {
     color: #3D4442;
     margin: 20px 0;
     line-height: 1.6;
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+/* Spinner and submit buton disability*/
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
 }
 
 .hero-btn {
@@ -412,76 +464,181 @@ header {
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    backdrop-filter: blur(5px); /* Blur effect for the background */
 }
 
+/* Modal Content */
 .modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.5s ease-out;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e1e1e1 100%); /* Gradient background */
+    margin: 5% auto; /* Center modal vertically */
+    padding: 40px 30px; /* Padding inside the modal */
+    border-radius: 20px; /* Rounded corners */
+    width: 90%; /* Width of the modal */
+    max-width: 600px; /* Max width for larger screens */
+    position: relative; /* For positioning close button */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Strong shadow for depth */
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation */
 }
 
+/* Close Button */
 .close-btn {
-    color: #333;
-    float: right;
-    font-size: 24px;
+    color: #333; /* Color for close button */
+    float: right; /* Position the close button to the right */
+    font-size: 30px; /* Larger font size for visibility */
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
 .close-btn:hover {
-    color: #f44336;
+    color: #e74c3c; /* Change color on hover */
 }
 
+/* Modal Heading */
 .modal h2 {
-    margin-top: 0;
-    font-size: 24px;
-    color: #2c3e50;
-    text-align: center;
+    margin-top: 0; /* Remove margin on top */
+    font-size: 32px; /* Font size for modal heading */
+    color: #34495e; /* Dark color for heading */
+    text-align: center; /* Center text */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin-bottom: 20px; /* Space below heading */
 }
 
+/* Form Styles */
 .modal form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flex layout for form */
+    flex-direction: column; /* Stack inputs vertically */
 }
 
+/* Form Group */
+.form-group {
+    margin-bottom: 25px; /* Space below each input group */
+}
+
+/* Labels */
 .modal label {
-    margin: 10px 0 5px;
+    margin-bottom: 8px; /* Space below label */
+    font-weight: bold; /* Bold labels */
+    color: #2c3e50; /* Dark color for labels */
 }
 
+/* Input and textarea styling */
 .modal input,
 .modal textarea,
 .modal select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 15px; /* Inner padding */
+    margin-bottom: 10px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light border for inputs */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border color and shadow */
 }
 
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus {
+    border-color: #00A8C6; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 168, 198, 0.5); /* Add shadow on focus */
+}
+
+/* Submit Button Styles */
 .submit-btn {
-    padding: 10px 20px;
-    background-color: #00A8C6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 15px 25px; /* Padding for button */
+    background-color: #00A8C6; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold font */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    align-self: center; /* Center button */
+    width: 100%; /* Full width */
+    box-shadow: 0 5px 15px rgba(0, 168, 198, 0.4); /* Add shadow to button */
 }
 
 .submit-btn:hover {
-    background-color: #2ecc71;
+    background-color: #007f96; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.resources {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    text-align: center;
+    margin: 20px 0;
+}
+
+.resources h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+}
+
+.resources p {
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 300; 
+    color: #333;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Optional: Start lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* For smoother transitions */
+}
+
+
+
+.resource-image {
+    flex: 1;
+    margin-left: 20px; /* Spacing between image and text */
+}
+
+.resource-image img {
+    width: 100%; /* Make image responsive */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.resource-content {
+    flex: 2; /* Allow more space for the content */
+    margin-right: 10px;
+}
+
+.resource-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+}
+
+.resource-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-content li {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: 300; 
+    color: #333;
 }
 
 
