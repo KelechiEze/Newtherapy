@@ -28,6 +28,7 @@ app.post('/send', (req, res) => {
     const mailOptions = {
         from: email,
         to: process.env.RECIPIENT_EMAIL,
+        cc: process.env.CC_EMAIL, // Add CC recipient here
         subject: `Contact Request from ${firstName} ${lastName}`,
         text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`
     };
@@ -50,6 +51,7 @@ app.post('/book-appointment', (req, res) => {
     const mailOptions = {
         from: email,
         to: process.env.RECIPIENT_EMAIL, // Your recipient's email
+        cc: process.env.CC_EMAIL, // Add CC recipient here
         subject: `Appointment Request from ${firstName} ${lastName}`,
         text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nService: ${service}\nPreferred Date: ${preferredDate}\nNotes: ${notes}`
     };
