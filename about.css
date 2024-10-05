@@ -176,6 +176,69 @@ header {
     background-color: #07334d;
 }
 
+/* Additional Services Section */
+.additional-services {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.additional-services .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-box {
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: 150px; /* Set a fixed height for the boxes */
+    display: flex; /* Use flex to center content */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    
+}
+
+.service-box .icon {
+    font-size: 30px; /* Icon size */
+    margin-bottom: 15px;
+    color: white; /* Icon color to match text */
+}
+
+.service-box h3 {
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Colors for each box */
+.grey {
+    background-color: #6c6c6c; /* Matches grey from image */
+}
+
+.orange {
+    background-color: #ff8a00; /* Matches orange from image */
+}
+
+.red {
+    background-color: #ed4c5c; /* Matches red from image */
+}
+
+/* Hover effect */
+.service-box:hover {
+    transform: scale(1.05);
+}
+
+
 /* Get in Touch Section */
 .contact-us {
     background-color: #f9f9f9; /* Light background color */

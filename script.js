@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Handling fade-in elements with incremental delays
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach((el, index) => {
         el.style.animationDelay = `${index * 0.3}s`; // Incremental delay
         el.classList.add('fade-in'); // Add the fade-in class to start the animation
     });
 
+    // Carousel logic
     const carouselItems = document.querySelectorAll('.carousel-item');
     let currentItem = 0;
 
@@ -19,46 +21,44 @@ document.addEventListener("DOMContentLoaded", function() {
         showItem(currentItem);
     }
 
-    setInterval(nextItem, 3000); // Change item every 3 seconds
+    setInterval(nextItem, 3000); // Change carousel item every 3 seconds
 
+    // Star creation logic
     const starsContainer = document.querySelector('.stars-container');
 
-    // Function to create a star
     function createStar() {
         const star = document.createElement('div');
         star.classList.add('star');
 
-        // Randomize the position of the star
-        const xPos = Math.random() * 100; // 0% to 100%
-        const yPos = Math.random() * 100; // 0% to 100%
+        // Randomize position and color of the star
+        const xPos = Math.random() * 100;
+        const yPos = Math.random() * 100;
         star.style.left = `${xPos}vw`;
         star.style.top = `${yPos}vh`;
 
-        // Randomize the color of the star
         const colors = ['#FFD700', '#FF4500', '#32CD32', '#1E90FF', '#FF69B4'];
         star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-        // Append the star to the stars container
         starsContainer.appendChild(star);
 
-        // Smooth transition for disappearing and reappearing
+        // Star fade-out after 2 seconds
         setTimeout(() => {
-            star.classList.add('hidden'); // Fade out
-        }, 2000); // Wait 2 seconds before starting to fade out
+            star.classList.add('hidden');
+        }, 2000);
 
+        // Remove star after fade-out completes
         star.addEventListener('transitionend', () => {
-            star.remove(); // Remove star after it fades out
+            star.remove();
         });
 
-        // Call the function again after a timeout
-        setTimeout(() => {
-            createStar(); // Create a new star
-        }, 500); // Create a new star every 0.5 seconds
+        // Create a new star after 0.5 seconds
+        setTimeout(createStar, 500);
     }
 
-    // Start creating stars
+    // Start star creation
     createStar();
 
+    // Reset service-item animations every 13 seconds
     setInterval(() => {
         const serviceItems = document.querySelectorAll('.service-item');
         serviceItems.forEach(item => {
@@ -66,25 +66,25 @@ document.addEventListener("DOMContentLoaded", function() {
             item.offsetHeight; // Trigger reflow
             item.style.animation = ''; // Add the animation back
         });
-    }, 13000); // Adjust the interval to match the spin and pause time (1s spin + 5s pause)
+    }, 13000);
 
-    // Get elements for the modal
+    // Modal functionality
     const openModalBtn = document.getElementById('openModalBtn');
     const modal = document.getElementById('appointmentModal');
     const closeModalBtn = document.querySelector('.close-btn');
 
-    // Function to open modal
+    // Open modal on click
     openModalBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modal.style.display = 'block';
     });
 
-    // Function to close modal
+    // Close modal on click
     closeModalBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    // Close modal when clicking outside the modal content
+    // Close modal if clicking outside the modal content
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
@@ -143,26 +143,46 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("The appointment form does not exist in the DOM.");
     }
-});
 
-
-document.addEventListener("DOMContentLoaded", function() {
+    // Intersection Observer for resource items
     const resourceItems = document.querySelectorAll('.resource-item');
-
-    // Create an intersection observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // When the element is in view, add the animation class
                 entry.target.classList.add('fade-in');
             }
         });
-    }, {
-        threshold: 0.1 // Trigger when 10% of the item is visible
-    });
+    }, { threshold: 0.1 });
 
-    // Observe each resource item
     resourceItems.forEach(item => {
         observer.observe(item);
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const heroContent = document.querySelector('.hero-content');
+    const heroImage = document.querySelector('.hero-image');
+
+    // Function to handle the fade-in and fade-out loop
+    function toggleFade() {
+        // Start by fading out
+        heroContent.classList.remove('fade-in');
+        heroImage.classList.remove('fade-in');
+        heroContent.classList.add('fade-out');
+        heroImage.classList.add('fade-out');
+
+        // After fade-out completes, wait for 10 seconds and fade in again
+        setTimeout(() => {
+            heroContent.classList.remove('fade-out');
+            heroImage.classList.remove('fade-out');
+            heroContent.classList.add('fade-in');
+            heroImage.classList.add('fade-in');
+        }, 4000); // Adjust the timing based on the fade-out duration
+
+        // Call this function again after 10 seconds for continuous loop
+        setTimeout(toggleFade, 14000); // Full cycle: 4s fade-out + 10s pause
+    }
+
+    // Start the fade in/out loop
+    toggleFade();
 });

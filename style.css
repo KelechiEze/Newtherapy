@@ -76,6 +76,17 @@ body {
     }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -156,7 +167,8 @@ header {
 .nav-links li a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 300; 
     padding: 10px;
     transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
 }
@@ -243,11 +255,13 @@ header {
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 15px;
     color: #3D4442;
     margin: 20px 0;
     line-height: 1.6;
 }
+
+
 
 .spinner {
     border: 8px solid rgba(0, 0, 0, 0.1);
@@ -335,6 +349,7 @@ header {
 .customer-satisfaction h2 {
     font-size: 36px;
     margin-bottom: 40px;
+    color:#333 ;
 }
 
 .stars-container {
@@ -378,9 +393,11 @@ header {
 }
 
 .carousel-item p {
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 20px;
     color: #333;
+    font-weight: 300; 
+    
 }
 
 /* Services Offered Section */
@@ -426,9 +443,10 @@ header {
 
 /* Service Description */
 .service-item p {
-    font-size: 16px;
+    font-size: 15px;
     color: #333; /* Dark gray for readability */
     line-height: 1.5; /* Line height for better readability */
+    font-weight: 300; 
 }
 /* Contact Us Section */
 .contact-us {
@@ -443,8 +461,10 @@ header {
 }
 
 .contact-us p {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 30px;
+    font-weight: 300; 
+    color: #333;
 }
 
 .contact-btn {
@@ -572,7 +592,7 @@ header {
 }
 
 .resources {
-    padding: 40px 20px;
+    padding: 40px 160px;
     background-color: #f9f9f9; /* Light background for contrast */
     text-align: center;
     margin: 20px 0;
@@ -588,7 +608,7 @@ header {
 .resources p {
     margin-bottom: 40px;
     font-family: 'Arial', sans-serif;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 300; 
     color: #333;
 }
@@ -598,6 +618,7 @@ header {
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    margin-top: 70px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -636,7 +657,7 @@ header {
 
 .resource-content li {
     margin: 5px 0;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 300; 
     color: #333;
 }
