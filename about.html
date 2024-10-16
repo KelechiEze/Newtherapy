@@ -18,19 +18,30 @@
     <header>
         <div class="container-navbar">
             <div class="logo fade-in"><h1>ShabacH</h1></div>
-            <nav class="navbar">
+    
+            <!-- Navigation section wrapped in a full-screen overlay -->
+            <nav class="navbar-overlay" id="navbarOverlay">
                 <ul class="nav-links fade-in">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="appointment-container">
+                    <a href="#" class="appointment-btn fade-in">Book Appointment</a>
+                </div>
+    
+                <!-- Close Button inside the overlay -->
+                <button class="close-btn" id="closeBtn">&times;</button>
             </nav>
-            <div class="appointment-container">
-                <a href="#" class="appointment-btn fade-in">Book Appointment</a>
+    
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
+    
 
     <!-- Landing Section with Background Image -->
     <section class="landing-section">
@@ -40,6 +51,40 @@
             <p>Learn more about our mission to help you live a pain-free life.</p>
         </div>
     </section>
+
+    <!-- Mission, Vision, and Goals Section -->
+    <section class="mission-vision-goals">
+        <div class="container">
+            <h2>Our Mission, Vision, and Goals</h2>
+            <div class="mvgoals-content">
+                <div class="goal-item fade-in">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to provide personalized therapy that alleviates pain and enhances quality of life, empowering individuals to achieve their physical health goals.</p>
+                </div>
+                <div class="goal-item fade-in">
+                    <h3>Our Vision</h3>
+                    <p>We envision a world where everyone has access to top-notch therapeutic services, improving their mobility, health, and overall well-being.</p>
+                </div>
+                <div class="goal-item fade-in">
+                    <h3>Our Goals</h3>
+                    <ul>
+                        <li>To deliver compassionate, evidence-based therapy services.</li>
+                        <li>To educate our clients on preventative measures and self-care.</li>
+                        <li>To provide a safe and supportive environment for healing.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal structure (hidden by default) -->
+    <div class="modal" id="goalModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalTextContent"></div>
+        </div>
+    </div>
+    
 
     <!-- Providing Physical Therapy Section -->
     <section class="therapy-services">
@@ -108,11 +153,47 @@
     <!-- Back-to-Top Button -->
     <a href="#" class="back-to-top" id="backToTopBtn">&#8679;</a>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2024 Therapy Clinic. All rights reserved.
+    <footer class="footer">
+        <div class="footcontainer">
+            <div class="footer-section">
+                <h2>ShabacH</h2>
+                <p>We address the cause of your pain, not just the symptom.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="contact.html">Contact </a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Symptom</h3>
+                <ul>
+                    <li><a href="#">Neck Pain</a></li>
+                    <li><a href="#">Head Pain</a></li>
+                    <li><a href="#">Back Pain</a></li>
+                    <li><a href="#">Whiplash</a></li>
+                    <li><a href="#">Work Injury</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <p><a href="tel:(123) 456 74700">(+234) 916 679 8290</a></p>
+                <p><a href="mailto:contact@healing.com">bakovictoria@gmail.com</a></p>
+                <p>121 Lato Street, Melbourne, PAT 3000</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
-
+    
     <script src="about.js"></script>
 </body>
 </html>

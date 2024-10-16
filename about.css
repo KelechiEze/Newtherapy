@@ -17,24 +17,40 @@ body, html {
 /* Navbar Styling */
 header {
     top: 0;
-    z-index: 10;
+    z-index: 100;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
-}
-
-.container {
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    opacity: 1;
+    transition: opacity 0.7s ease-in-out; /* Smooth fade-in */
 }
 
 .container-navbar {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+}
+
+.navbar-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Black overlay with opacity */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000; /* Bring overlay in front */
+    transition: opacity 0.5s ease-in-out; /* Smooth transitions */
+    opacity: 0;
+}
+
+.navbar-overlay.active {
     display: flex;
+    opacity: 1;
 }
 
 .navbar {
@@ -45,6 +61,10 @@ header {
     list-style: none;
     display: flex;
     gap: 20px;
+}
+
+.nav-links li {
+    margin: 15px 0;
 }
 
 .nav-links a {
@@ -68,6 +88,31 @@ header {
 
 .appointment-btn:hover {
     background-color: #07334d;
+}
+
+.hamburger {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg); /* Rotate effect on hover */
 }
 
 /* Landing Section with Background Image */
@@ -112,6 +157,215 @@ header {
     opacity: 1; /* Fully visible */
     transform: translateY(0); /* Move back to original position */
 }
+
+/* Mission, Vision, and Goals Section */
+.mission-vision-goals {
+    background-color: #f4f4f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.mission-vision-goals .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission-vision-goals h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+    /* Remove animation or fade-in effect for h2 */
+}
+
+.mvgoals-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.goal-item {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.goal-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1E90FF;
+}
+
+.goal-item p, .goal-item ul {
+    font-size: 14px;
+    color: #555;
+}
+
+.goal-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.goal-item ul li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #444;
+}
+
+/* Hover effect */
+.goal-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .mvgoals-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .goal-item {
+        max-width: 100%;
+    }
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #f0f8ff, #b0e0e6); /* Light, professional gradient */
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.modal-content.active {
+    opacity: 1;
+    transform: translateY(0); /* Smoothly moves into position */
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ff6347; /* Subtle Tomato color */
+}
+
+.close-modal:hover {
+    color: #ff4500; /* Slightly darker on hover */
+}
+
+/* Modal Text Styling */
+.modal h3 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    font-size: 1.2em;
+    color: #34495e;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+.modal ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons for list items */
+.modal ul li i {
+    margin-right: 10px;
+    color: #ff7f50; /* Coral-colored icons */
+    font-size: 1.4em;
+}
+
+/* Icons for each section */
+.modal h3 i {
+    margin-right: 10px;
+    color: #1abc9c; /* Icon with light teal color */
+}
+
+/* Add subtle box-shadow effect to text */
+#modalTextContent {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    animation: slideIn 0.6s ease-out; /* Add animation */
+}
+
+/* Text animations */
+@keyframes slideIn {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* Therapy Services Section */
 .therapy-services {
@@ -201,11 +455,10 @@ header {
     text-align: center;
     transition: transform 0.3s ease;
     height: 150px; /* Set a fixed height for the boxes */
-    display: flex; /* Use flex to center content */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .service-box .icon {
@@ -237,7 +490,6 @@ header {
 .service-box:hover {
     transform: scale(1.05);
 }
-
 
 /* Get in Touch Section */
 .contact-us {
@@ -275,127 +527,150 @@ header {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Footer Section */
-footer {
-    background-color: #333; /* Dark background color */
-    color: white; /* White text color */
-    text-align: center; /* Center the text */
-    padding: 20px 0; /* Vertical padding */
-    position: relative; /* Allow positioning */
-    bottom: 0; /* Stick to the bottom */
-    width: 100%; /* Full width */
+/* Footer Styles */
+.footer {
+    background-color: #1d1d1b; /* Dark background */
+    color: #fff;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
 }
 
-footer p {
-    margin: 0; /* Remove default margin */
-    font-size: 1rem; /* Font size */
+.footer .footcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-/* General Styling for Small Screens (Mobile) */
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #00b7c2; /* Underline style for headers */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00b7c2; /* Color change on hover */
+}
+
+.footer-section .social-icons a {
+    margin-right: 10px;
+    color: #aaa;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-section .social-icons a:hover {
+    color: #00b7c2; /* Social icon hover effect */
+}
+
+.footer-section p a {
+    color: #00b7c2; /* Links in contact section */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section p a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    /* Top Bar */
-    .top-bar {
-        font-size: 0.9rem; /* Reduce text size */
-        padding: 10px; /* Add padding to keep it compact */
-    }
-
     /* Navbar */
     .container-navbar {
-        flex-direction: column; /* Stack the logo, navbar, and button */
+        flex-direction: column;
         align-items: center;
-        height: auto; /* Adjust height automatically based on content */
-        padding: 2px 0; /* Reduce padding to make it more compact */
     }
 
-    .logo {
-        margin-bottom: 10px; /* Add space between logo and navbar */
+    .navbar-overlay {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: auto;
+        background-color: transparent; /* Remove overlay background on desktop */
+        justify-content: flex-end; /* Align the navbar to the right */
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links {
-        flex-direction: column; /* Stack links vertically */
-        gap: 10px; /* Add spacing between links */
-        margin-right: 30px;
+        flex-direction: row; /* Horizontal layout on desktop */
+        gap: 20px;
     }
-
-    .appointment-container {
-        margin-top: 10px; /* Add space below navbar links */
-    }
-
-    /* Landing Section */
-    .landing-section {
-        padding: 20px; /* Reduce padding for small screens */
-        text-align: center; /* Center the text */
-    }
-
-    .landing-content h2 {
-        font-size: 2rem; /* Adjust heading size */
-    }
-
-    .landing-content p {
-        font-size: 1rem; /* Adjust paragraph size */
-    }
-
-    /* Therapy Services Section */
-    .therapy-services .container {
-        padding: 20px; /* Reduce padding for a compact look */
-    }
-
-    .therapy-services h2 {
-        font-size: 2rem; /* Adjust heading size */
-    }
-
-    .service-cards {
-        display: flex;
-        flex-direction: column; /* Stack cards vertically */
-        gap: 20px; /* Add space between cards */
-    }
-
-    .service-card {
-        display: flex;
+   
+    .navbar ul {
+        display: none; /* Hide by default */
         flex-direction: column;
-        align-items: center;
-        text-align: center; /* Center-align text */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .service-card img {
-        width: 90%; /* Reduce image width */
-        height: auto; /* Keep image aspect ratio */
-        margin-bottom: 10px; /* Add space below the image */
+    /* Show the navbar links when the 'open' class is active */
+    .navbar.open ul {
+        display: flex;
     }
 
-    .service-card h3 {
-        font-size: 1.2rem; /* Adjust card title size */
+    .hamburger {
+        display: block;
     }
 
-    /* Contact Us Section */
-    .contact-us {
-        padding: 30px 20px; /* Adjust padding */
+    /* Additional services section grid layout */
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 services per row on small screens */
     }
 
-    .contact-us h2 {
-        font-size: 2rem; /* Adjust heading size */
-    }
-
-    .contact-us p {
-        font-size: 1rem; /* Adjust paragraph size */
-    }
-
-    .contact-btn {
-        padding: 8px 16px; /* Adjust button padding */
-        font-size: 1rem; /* Adjust button text size */
-    }
-
-    /* Footer Section */
-    footer {
-        padding: 15px; /* Adjust padding */
-        font-size: 0.9rem; /* Adjust font size */
-    }
-
-    /* Back-to-Top Button */
-    #backToTopBtn {
-        width: 40px; /* Reduce button size */
-        height: 40px;
-        font-size: 1.5rem; /* Adjust icon size */
+    .service-box {
+        height: auto; /* Let the height adjust based on content */
+        padding: 20px;
     }
 }
 
+@media (max-width: 576px) {
+    /* Further adjustments for extra small screens */
+    .service-grid {
+        grid-template-columns: 1fr; /* Show 1 service per row on very small screens */
+    }
+}

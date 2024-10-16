@@ -1,0 +1,320 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Top Bar */
+.top-bar {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 9px 0;
+}
+
+/* Navbar Styling */
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f8f8;
+    position: relative;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #007bff;
+}
+
+.appointment-btn {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.appointment-btn:hover {
+    background: #0056b3;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin: 4px 0;
+}
+
+/* Overlay styles */
+.navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Hide by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.navbar-overlay.active {
+    display: flex; /* Show when active */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Services Banner Section Styles */
+.services-banner {
+    background-image: url('Images/chiropractor-for-upper-back-pain-1080x675.jpeg'); /* Replace with the correct image path */
+    background-size: cover;
+    background-position: center;
+    background-color: #b0c2cc; /* Fallback background color */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.services-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dim overlay */
+}
+
+.services-banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+}
+
+.services-banner-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #fff;
+}
+
+/* Service Details Layout */
+.service-details {
+    display: flex;
+    padding: 20px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.service-sidebar {
+    width: 25%;
+    padding-right: 20px;
+}
+
+.service-sidebar .service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-sidebar .service-list li {
+    margin: 10px 0;
+}
+
+.service-sidebar .service-list li a {
+    display: block;
+    padding: 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.service-sidebar .service-list li a.active, 
+.service-sidebar .service-list li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.service-sidebar .download-brochure {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.service-sidebar .download-brochure:hover {
+    background-color: #c0392b;
+}
+
+/* Service Content */
+.service-content {
+    width: 50%;
+}
+
+.service-content img {
+    max-width: 80%;
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.service-content h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.service-content p {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #1d1d1b; /* Dark background */
+    color: #fff;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer .footcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #00b7c2; /* Underline style for headers */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00b7c2; /* Color change on hover */
+}
+
+.footer-section .social-icons a {
+    margin-right: 10px;
+    color: #aaa;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-section .social-icons a:hover {
+    color: #00b7c2; /* Social icon hover effect */
+}
+
+.footer-section p a {
+    color: #00b7c2; /* Links in contact section */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section p a:hover {
+    text-decoration: underline;
+}
+
+

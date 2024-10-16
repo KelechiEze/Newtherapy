@@ -58,17 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Start star creation
     createStar();
 
-    // Reset service-item animations every 13 seconds
-    setInterval(() => {
-        const serviceItems = document.querySelectorAll('.service-item');
-        serviceItems.forEach(item => {
-            item.style.animation = 'none'; // Remove the animation
-            item.offsetHeight; // Trigger reflow
-            item.style.animation = ''; // Add the animation back
-        });
-    }, 13000);
-
-    // Modal functionality
+    // Modal functionality for the appointment modal
     const openModalBtn = document.getElementById('openModalBtn');
     const modal = document.getElementById('appointmentModal');
     const closeModalBtn = document.querySelector('.close-btn');
@@ -126,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data.success) {
                     alert('Appointment booked successfully!');
                     appointmentForm.reset(); // Reset the form after submission
+                    showPricingLocationModal(); // Show the pricing and location modal after booking
                 } else {
                     alert('There was an issue with your booking. Please try again.');
                 }
@@ -157,9 +148,77 @@ document.addEventListener("DOMContentLoaded", function() {
     resourceItems.forEach(item => {
         observer.observe(item);
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+    // Get elements for the new Pricing and Location modal
+    const pricingLocationModal = document.getElementById('pricingLocationModal');
+    const closePricingLocationBtn = document.querySelector('.close-btn-pricing-location');
+
+    // Function to show the Pricing and Location modal
+    function showPricingLocationModal() {
+        pricingLocationModal.style.display = 'block';
+    }
+
+    // Function to close the Pricing and Location modal
+    closePricingLocationBtn.addEventListener('click', () => {
+        pricingLocationModal.style.display = 'none';
+    });
+
+    // Close the modal if clicking outside the modal content
+    window.addEventListener('click', (e) => {
+        if (e.target === pricingLocationModal) {
+            pricingLocationModal.style.display = 'none';
+        }
+    });
+
+    // Handle service location selection and display sub-questions
+    const serviceLocationSelect = document.getElementById('serviceLocation');
+    const homeServiceAddressContainer = document.querySelector('.home-sub-question');
+    const officeLocationContainer = document.querySelector('.office-sub-question');
+    const virtualServiceContainer = document.querySelector('.virtual-sub-question');
+
+    serviceLocationSelect.addEventListener('change', function() {
+        // Hide all sub-question containers initially
+        homeServiceAddressContainer.style.display = 'none';
+        officeLocationContainer.style.display = 'none';
+        virtualServiceContainer.style.display = 'none';
+
+        // Show the appropriate container based on the selected service location
+        switch (serviceLocationSelect.value) {
+            case 'home-service':
+                homeServiceAddressContainer.style.display = 'block';
+                break;
+            case 'office-location':
+                officeLocationContainer.style.display = 'block';
+                break;
+            case 'virtual-service':
+                virtualServiceContainer.style.display = 'block';
+                break;
+        }
+    });
+
+    // Handle the submission of the Pricing and Location form
+    const pricingLocationForm = document.getElementById('pricingLocationForm');
+    pricingLocationForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const pricingData = {
+            serviceLocation: serviceLocationSelect.value,
+            homeServiceAddress: document.getElementById('homeServiceAddress').value,
+            preferredOfficeLocation: document.getElementById('preferredOfficeLocation').value,
+            servicePrice: document.getElementById('servicePrice').value
+        };
+
+        // Process the pricing data (you can send this to the backend, display confirmation, etc.)
+        console.log('Selected Pricing and Location:', pricingData);
+
+        // After submission, close the modal
+        pricingLocationModal.style.display = 'none';
+        
+        // Show a confirmation message or proceed with further actions
+        alert('Thank you! Your preferences have been recorded.');
+    });
+
+    // Hero content fade-in/out loop
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
 

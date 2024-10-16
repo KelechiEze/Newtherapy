@@ -48,3 +48,19 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }, 3000);
 });
 
+// contact.js
+
+// Get elements
+const hamburger = document.getElementById("hamburger");
+const navbarOverlay = document.getElementById("navbarOverlay");
+const closeBtn = document.getElementById("closeBtn");
+
+// Toggle the overlay menu on hamburger click
+hamburger.addEventListener("click", () => {
+    navbarOverlay.classList.toggle("active");
+});
+
+// Close the overlay menu when the close button is clicked
+closeBtn.addEventListener("click", () => {
+    navbarOverlay.classList.remove("active");
+});
