@@ -607,6 +607,110 @@ header {
   .home-sub-question, .office-sub-question, .virtual-sub-question {
     display: none;
   }
+
+  /* Styling for the Why Choose Us section */
+.why-choose-us {
+    background-color: #66c3d6; /* Same background color as in the image */
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.why-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.why-image {
+    flex: 1;
+    animation: fadeInLeft 1.5s ease-in-out; /* Adding animation */
+}
+
+.why-image img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.why-image img:hover {
+    transform: scale(1.05); /* Hover effect to zoom */
+}
+
+.why-content {
+    flex: 1;
+    color: white;
+    padding-left: 40px;
+    animation: fadeInRight 1.5s ease-in-out; /* Adding animation */
+}
+
+.why-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.why-content h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 2px;
+    background-color: white;
+}
+
+.why-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stats div {
+    text-align: center;
+}
+
+.stats h3 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.stats p {
+    font-size: 14px;
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
   
 
 .resources {
@@ -845,8 +949,6 @@ header {
 .footer-section p a:hover {
     text-decoration: underline;
 }
-
-
 
 /* Responsive for mobile */
 @media (max-width: 768px) {
